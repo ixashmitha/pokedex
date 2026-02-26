@@ -69,7 +69,11 @@
 <div class="text-center flex flex-col items-center mt-10 gap-4">
    <div class="text-xl text-gray-300"><h3>Name or Number</h3></div>
    <div class="flex gap-3">
-  <input type="text" id='searchInput'placeholder="Search Pokémon" class="px-4 py-3 rounded-xl bg-gray-800 focus:outline-none focus:ring-2 focus:ring-[#ffcb05] transition duration-300"/>
+  <div class="relative w-72">
+  <input type="text"id="searchInput"placeholder="Search Pokémon"class="w-full px-4 py-3 rounded-xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-[#ffcb05] transition duration-300"/>
+  <div id="suggestions" class="absolute left-0 top-full mt-2 w-full bg-gray-900/95 backdrop-blur-lg border border-gray-700 rounded-xl shadow-2xl hidden max-h-60 overflow-y-auto z-50 transition-all duration-200">
+  </div>
+</div>
    <button id="searchBtn" class="px-4 py-3 text-center bg-orange-600 rounded-xl text-white hover:bg-orange-700 transition">Search</button></div>
                 <div class="text-green-400 text-sm">
                     Search for a Pokémon by name or using its National Pokédex number.
@@ -79,18 +83,26 @@
     <div class="flex justify-around mt-12">
     <button id='surpriseBtn'class="bg-gradient-to-r from-purple-600 to-pink-500 px-16 py-6 rounded-full font-bold shadow-lg hover:scale-110 transition duration-300">Surprise Me!</button>
     </div>
-    <div id="pokemongrid" class="p-4 grid grid-cols-4 gap-4"></div>
-        <button id='loadMoreBtn'class="m-10 flex justify-self-center bg-gradient-to-r from-purple-600 to-pink-500 px-10 py-4 rounded-full font-bold shadow-lg hover:scale-110 transition duration-300">Load More</button>
 </div>
+<main class="max-w-8xl p-6 ">
+        <div id="pokemonGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        </div>
+
+        <div id="pagination" class="flex justify-center items-center gap-3 mt-8 flex-wrap">
+            <button id="prevPage" class="px-10 py-3 text-center bg-orange-600 rounded-xl text-white hover:bg-orange-700 transition">
+                Prev
+            </button>
+            <div id="pageNumbers" class="flex gap-2"></div>
+            <button id="nextPage" class="px-10 py-3 text-center bg-orange-600 rounded-xl text-white hover:bg-orange-700 transition">
+                Next
+            </button>
+        </div>
+    </main>
 <div id="model" class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-md p-4 z-50 transition-all duration-300">
-<div id="modelContent" class="bg-gray-900/90 backdrop-blur-lg border-gray-700 rounded-2xl p-8 w-full max-w-2xl shadow-2xl overflow-y-auto max-h-[70vh] transition-all duration-300">
+<div id="modelContent" class="bg-gray-900/90 backdrop-blur-lg border border-gray-700 rounded-2xl p-8 w-full max-w-2xl shadow-2xl overflow-y-auto max-h-[70vh] transition-all duration-300">
 </div>
 </div>
-<div class="mt-20
-               bg-gray-100 text-black
-               dark:bg-gradient-to-r dark:from-gray-900 dark:to-black
-               dark:text-white
-               transition-colors duration-300">
+<div class="mt-20 bg-gray-100 text-black dark:bg-gradient-to-r dark:from-gray-900 dark:to-black dark:text-white transition-colors duration-300">
    <div class="footer-section">
     <h3 class="text-xl font-semibold text-yellow-400 mb-4 tracking-wide">The Pokémon Company</h3>
     <ul>
@@ -118,7 +130,7 @@
     <a href="#" class="hover:text-yellow-400 transition duration-300">Legal Info</a>
     <a href="#"class="hover:text-yellow-400 transition duration-300">Security</a>
   </div>
-    <p class="mt-6 text-xs text-gray-500 tracking-wide">©2026 Pokémon. ©1995-2026 Nintendo/Creatures Inc./GAME FREAK inc.</p>
+  <marquee><p class="bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 bg-clip-text text-transparent mt-6 text-xs tracking-wide inline-block">©2026 Pokémon. ©1995-2026 Nintendo/Creatures Inc./GAME FREAK inc.</p></marquee>
 </div>
     <script src="app.js"></script>
 </body>
